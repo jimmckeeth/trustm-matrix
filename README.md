@@ -1,8 +1,15 @@
 # Trust M Matrix
 
+What does real randomness look like?
+
 A random-pixel light show on a 64x32 RGB LED matrix, driven entirely by the
-hardware true-random-number generator (TRNG) inside an Infineon OPTIGA
-Trust M secure element — not a software pseudo-random generator.
+hardware true-random-number generator (TRNG) inside an [Infineon OPTIGA
+Trust M](https://www.infineon.com/part/OPTIGA-TRUST-M-MTR) secure element — 
+not a software pseudo-random generator. Real random in real time. 
+
+## Random Colors
+
+<img width="640" height="480" alt="random-colors" src="https://github.com/user-attachments/assets/879da6ac-2dec-4deb-b6f9-1e4ec456882e" />
 
 Every tick, a genuinely random pixel is chosen (position and color both
 come straight from the chip's RNG). If the pixel was off, it lights up in
@@ -13,14 +20,16 @@ animates the right way whichever way the board is held or mounted.
 
 ## Hardware / Bill of Materials
 
-| Qty | Part | Notes |
-|-----|------|-------|
-| 1 | [Adafruit Matrix Portal M4](https://www.adafruit.com/product/4745) | ATSAMD51J19 Cortex-M4, runs CircuitPython, has a built-in HUB75 matrix connector, an onboard LIS3DH accelerometer, and a STEMMA QT (I2C) port |
-| 1 | [64x32 RGB LED matrix panel](https://www.adafruit.com/product/2278) | HUB75-style, plugs directly into the Matrix Portal M4's onboard connector |
-| 1 | [Infineon OPTIGA Trust M (SLS32AIA) breakout](https://www.adafruit.com/product/4351) | Needs a STEMMA QT / Qwiic (JST-SH 4-pin) connector; this is what supplies the hardware TRNG |
-| 1 | [STEMMA QT / Qwiic cable](https://www.adafruit.com/product/4399) | Connects the Trust M breakout to the Matrix Portal M4's STEMMA QT port |
-| 1 | 5V power supply | Sized for the LED panel — a 64x32 panel can draw several amps at full brightness, more than USB alone typically provides |
-| 1 | USB-C cable | For programming the Matrix Portal M4 (and power, if the panel's own supply is separate) |
+| Part | Notes |
+|------|-------|
+| [Adafruit Matrix Portal M4](https://www.adafruit.com/product/4745) | ATSAMD51J19 Cortex-M4, runs CircuitPython, has a built-in HUB75 matrix connector, an onboard LIS3DH accelerometer, and a STEMMA QT (I2C) port |
+| [64x32 RGB LED matrix panel](https://www.adafruit.com/product/2278) | HUB75-style, plugs directly into the Matrix Portal M4's onboard connector |
+| [Infineon OPTIGA Trust M (SLS32AIA) breakout](https://www.adafruit.com/product/4351) | Needs a STEMMA QT / Qwiic (JST-SH 4-pin) connector; this is what supplies the hardware TRNG |
+| [STEMMA QT / Qwiic cable](https://www.adafruit.com/product/4399) | Connects the Trust M breakout to the Matrix Portal M4's STEMMA QT port |
+| 5V power supply | Sized for the LED panel — a 64x32 panel can draw several amps at full brightness, more than USB alone typically provides |
+| USB-C cable | For programming the Matrix Portal M4 (and power, if the panel's own supply is separate) |
+
+That is what I used, but you should be able to adapt it to any size LED matrix.
 
 ### Wiring
 
@@ -74,11 +83,10 @@ animates the right way whichever way the board is held or mounted.
 
 Pixel positions, colors, and animation timing are all derived from raw
 bytes pulled from the Trust M's `GetRandom` command over its I2C protocol
-(implemented from scratch in `trustm.py`, since no existing CircuitPython
-library talks to this chip). Positions are extracted by masking random
+(implemented from scratch in `trustm.py`). Positions are extracted by masking random
 bytes against the (power-of-two) width and height, which is exactly
 uniform with no modulo bias.
 
 ## License
 
-See `LICENSE.md`.
+`AGPL`
