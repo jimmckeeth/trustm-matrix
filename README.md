@@ -26,6 +26,8 @@ animates the right way whichever way the board is held or mounted.
 
 ### hue-frequency
 
+<img width="640" height="480" alt="hue-frequency" src="https://github.com/user-attachments/assets/f947917b-bf2b-4385-88dc-1771967adb2f" />
+
 A calmer, single-hue-at-a-time variation. Each tick, a random lane
 (column, or row if the board is tilted sideways) is chosen and a pixel of
 the current color drops into it from the "top" (as determined live by the
