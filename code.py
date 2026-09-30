@@ -2,21 +2,42 @@
 """Random-pixel visualization for the 64x32 RGB matrix, seeded entirely by the
 OPTIGA Trust M's hardware TRNG.
 
-Behaviour:
-  - Starts all black.
-  - Every `delay` seconds, a truly-random pixel is chosen.
-      - If it is currently off, it lights up in a truly-random color.
-      - If it is already lit, it blinks (see ENABLE_FALLING below).
-  - Once FULL_THRESHOLD of the board's cells are lit at the same time,
-    normal ticking pauses and the board empties in one synchronized sweep:
-    pixels are grouped into columns (or rows, if gravity is pointing
-    sideways). Groups start falling one at a time, in random order, each
-    one after a short random delay past the previous -- so at any moment
-    several columns are smoothly falling together, just staggered in when
-    they began.
-  - UP/DOWN buttons step the delay through the values in DELAYS.
+Two display variations, selectable at runtime (see button mapping below):
 
-ENABLE_FALLING toggles what happens when a lit pixel is revisited:
+  "random-color" (default on boot):
+    - Starts all black.
+    - Every `delay` seconds, a truly-random pixel is chosen.
+        - If it is currently off, it lights up in a truly-random color.
+        - If it is already lit, it blinks (see ENABLE_FALLING below).
+    - Once FULL_THRESHOLD of the board's cells are lit at the same time,
+      normal ticking pauses and the board empties in one synchronized sweep:
+      pixels are grouped into columns (or rows, if gravity is pointing
+      sideways). Groups start falling one at a time, in random order, each
+      one after a short random delay past the previous -- so at any moment
+      several columns are smoothly falling together, just staggered in when
+      they began.
+
+  "hue-frequency":
+    - Every `delay` seconds, a random lane (a column, or a row if gravity is
+      pointing sideways -- read from the onboard LIS3DH accelerometer, same
+      as ENABLE_FALLING below) is chosen and a pixel drops from the spawn
+      edge in the current hue, landing on top of whatever is already stacked
+      against the far wall of that lane. The hue then advances to the next
+      color in HUE_COLORS (a fixed cycle through Tailwind's 17 "600" shades,
+      red through rose) for the next drop, wherever it lands.
+    - When a lane's stack reaches the spawn edge (i.e. it's completely full),
+      that lane alone falls off the far wall and starts empty again --
+      independently of every other lane, and without pausing new drops
+      elsewhere. Falling and dropping are both driven by the same
+      non-blocking step loop as "random-color", so many lanes can be
+      dropping/falling/clearing at once with no visible stutter.
+
+UP/DOWN buttons step the shared `delay` through the values in DELAYS
+(applies to both variations); holding either button for LONG_PRESS_SECONDS
+rotates to the next display variation instead.
+
+ENABLE_FALLING (random-color mode only) toggles what happens when a lit
+pixel is revisited:
   - True:  it blinks twice, then tries to fall off the display in the
     direction gravity is currently pointing (read from the onboard LIS3DH
     accelerometer), so the matrix can be held or mounted at any angle and
@@ -45,6 +66,7 @@ WIDTH = 64
 HEIGHT = 32
 DELAYS = (0.001, 0.01, 0.1, 0.5, 1, 2, 5, 10)
 DELAY_INDEX_DEFAULT = 0
+LONG_PRESS_SECONDS = 1.0  # hold UP/DOWN this long to switch display variation
 
 VERBOSE = True  # per-tick logging; noisy at fast delays, flip off to quiet it
 STATUS_PERIOD = 5  # seconds between periodic fill/free-memory status prints
@@ -63,6 +85,35 @@ FULL_THRESHOLD = 0.75  # fraction of cells lit that triggers the full sweep
 # panel's x/y once you see it running -- can't be verified without hardware.
 ACCEL_INVERT_X = False
 ACCEL_INVERT_Y = False
+
+# --- display variations -----------------------------------------------------
+MODE_NAMES = ("random-color", "hue-frequency")
+MODE_RANDOM_COLOR = 0
+MODE_HUE_FREQUENCY = 1
+mode_index = MODE_RANDOM_COLOR
+
+# Tailwind v4 "600" shades, red-600 through rose-600 (17 hues, the full
+# palette in its standard order) -- approximate sRGB hex for each, close
+# enough given the matrix panel is only 6 bits per channel anyway.
+HUE_COLORS = (
+    0xDC2626,  # red-600
+    0xEA580C,  # orange-600
+    0xD97706,  # amber-600
+    0xCA8A04,  # yellow-600
+    0x65A30D,  # lime-600
+    0x16A34A,  # green-600
+    0x059669,  # emerald-600
+    0x0D9488,  # teal-600
+    0x0891B2,  # cyan-600
+    0x0284C7,  # sky-600
+    0x2563EB,  # blue-600
+    0x4F46E5,  # indigo-600
+    0x7C3AED,  # violet-600
+    0x9333EA,  # purple-600
+    0xC026D3,  # fuchsia-600
+    0xDB2777,  # pink-600
+    0xE11D48,  # rose-600
+)
 
 # --- display: one dedicated palette slot per pixel, so every one of the
 # 2048 cells can hold an independent random 24-bit color with no palette
@@ -156,18 +207,47 @@ btn_down.switch_to_input(pull=digitalio.Pull.UP)
 delay_index = DELAY_INDEX_DEFAULT
 prev_up = True
 prev_down = True
+up_press_start = None
+down_press_start = None
+up_long_fired = False
+down_long_fired = False
 
 
 def poll_buttons():
+    """Short tap (press then release before LONG_PRESS_SECONDS) steps the
+    shared delay; holding past LONG_PRESS_SECONDS rotates the display
+    variation instead and suppresses the delay-step on release. Actions now
+    fire on release rather than press (needed to tell a tap from a hold)."""
     global delay_index, prev_up, prev_down
+    global up_press_start, down_press_start, up_long_fired, down_long_fired
+    now = time.monotonic()
     up = btn_up.value
     down = btn_down.value
-    if prev_up and not up:
-        delay_index = min(delay_index + 1, len(DELAYS) - 1)
-        print("delay ->", DELAYS[delay_index], "s")
+
+    if prev_up and not up:  # just pressed
+        up_press_start = now
+        up_long_fired = False
+    elif not up:  # held
+        if not up_long_fired and now - up_press_start >= LONG_PRESS_SECONDS:
+            switch_mode(1)
+            up_long_fired = True
+    elif not prev_up and up:  # just released
+        if not up_long_fired:
+            delay_index = min(delay_index + 1, len(DELAYS) - 1)
+            print("delay ->", DELAYS[delay_index], "s")
+
     if prev_down and not down:
-        delay_index = max(delay_index - 1, 0)
-        print("delay ->", DELAYS[delay_index], "s")
+        down_press_start = now
+        down_long_fired = False
+    elif not down:
+        if not down_long_fired and now - down_press_start >= LONG_PRESS_SECONDS:
+            switch_mode(-1)
+            down_long_fired = True
+    elif not prev_down and down:
+        if not down_long_fired:
+            delay_index = max(delay_index - 1, 0)
+            print("delay ->", DELAYS[delay_index], "s")
+
     prev_up, prev_down = up, down
 
 
@@ -204,6 +284,19 @@ sweep_offset = [0] * MAX_GROUPS  # per-group steps taken so far
 sweep_due = [False] * MAX_GROUPS  # scratch: which groups move this tick
 sweep_remaining = 0  # cells still on-display; sweep ends when this hits 0
 
+# --- hue-frequency mode state: one stack per lane (a column when gravity is
+# vertical, a row when it's sideways -- same lane concept as the sweep's
+# groups above). No stack-height counter is kept: a lane's fill state lives
+# entirely in cell_state, and a drop settles by colliding with the grid
+# exactly like the general per-pixel falling above -- this is what keeps it
+# correct no matter which way the accelerometer says down is, including if
+# it changes mid-animation. -------------------------------------------------
+hue_index = 0  # index into HUE_COLORS for the next drop
+hue_dropping = [False] * MAX_GROUPS  # lane has a particle in flight or is clearing
+hue_clearing = [False] * MAX_GROUPS  # lane is currently falling off
+hue_clear_next_time = [0.0] * MAX_GROUPS
+hue_falling = []  # list of [x, y, color, next_step_time]
+
 
 def gravity_direction():
     try:
@@ -217,6 +310,49 @@ def gravity_direction():
     if abs(ax) > abs(ay):
         return (1, 0) if ax > 0 else (-1, 0)
     return (0, 1) if ay > 0 else (0, -1)
+
+
+# hue-frequency's orientation, read once when the mode is (re)entered rather
+# than every tick like the general per-pixel falling above does. Re-reading
+# it live turned out to be a real bug: with the board held near a borderline
+# tilt, accelerometer noise can flip which axis reads as "down" between two
+# consecutive calls, and unlike a single falling particle (which just takes
+# one wrong step and self-corrects), hue-frequency's lane bookkeeping
+# (hue_dropping/hue_clearing indices, and whether a lane means a column or a
+# row) is shared across many ticks -- a flip mid-lane silently corrupts it
+# (observed on hardware as lanes reporting "full" after ~30 drops instead of
+# the expected 32). Freezing it for as long as the mode is active avoids
+# that entirely, at the cost of not reacting to being physically rotated
+# while already in this mode -- switch away and back to re-read it.
+hue_dx, hue_dy = gravity_direction()
+
+
+def clear_display():
+    global lit_count, sweep_active
+    for y in range(HEIGHT):
+        for x in range(WIDTH):
+            if cell_state[y][x] != OFF:
+                set_pixel(x, y, 0x000000)
+            cell_state[y][x] = OFF
+            cell_color[y][x] = 0
+    lit_count = 0
+    blinks.clear()
+    falling.clear()
+    sweep_active = False
+    hue_falling.clear()
+    for k in range(MAX_GROUPS):
+        hue_dropping[k] = False
+        hue_clearing[k] = False
+
+
+def switch_mode(direction):
+    global mode_index, hue_index, hue_dx, hue_dy
+    mode_index = (mode_index + direction) % len(MODE_NAMES)
+    hue_index = 0
+    if mode_index == MODE_HUE_FREQUENCY:
+        hue_dx, hue_dy = gravity_direction()
+    clear_display()
+    print("mode ->", MODE_NAMES[mode_index])
 
 
 def check_full():
@@ -424,23 +560,142 @@ def on_tick():
     # else ANIM: already mid blink/fall, nothing to do this tick
 
 
+# --- hue-frequency: drop a cycling-hue pixel into a random lane, stack it
+# against the far wall (in whichever direction the accelerometer currently
+# says is down), and let a completely full lane fall off on its own --------
+def start_hue_clear(lane):
+    hue_clearing[lane] = True
+    hue_dropping[lane] = True  # keep blocking new drops while it empties
+    hue_clear_next_time[lane] = time.monotonic()
+    if VERBOSE:
+        print("hue: lane %d full, falling off" % lane)
+
+
+def advance_hue_falling(now):
+    if not hue_falling:
+        return
+    dx, dy = hue_dx, hue_dy
+    keep = []
+    for particle in hue_falling:
+        x, y, color, next_step = particle
+        if now < next_step:
+            keep.append(particle)
+            continue
+        nx, ny = x + dx, y + dy
+        if not (0 <= nx < WIDTH and 0 <= ny < HEIGHT) or cell_state[ny][nx] != OFF:
+            # blocked by a wall or another settled pixel -- this is where it
+            # lands, so this is what must persist for the clear cascade to
+            # later read the right color back out of the grid.
+            cell_state[y][x] = LIT
+            cell_color[y][x] = color
+            lane = x if dy != 0 else y
+            hue_dropping[lane] = False
+            continue
+        set_pixel(x, y, 0x000000)
+        cell_state[y][x] = OFF
+        set_pixel(nx, ny, color)
+        cell_state[ny][nx] = ANIM
+        particle[0], particle[1], particle[3] = nx, ny, now + FALL_STEP_PERIOD
+        keep.append(particle)
+    hue_falling[:] = keep
+
+
+def advance_hue_clearing(now):
+    for lane in range(MAX_GROUPS):
+        if not hue_clearing[lane]:
+            continue
+        if now < hue_clear_next_time[lane]:
+            continue
+        hue_clear_next_time[lane] = now + FALL_STEP_PERIOD
+        dx, dy = hue_dx, hue_dy
+        moved_any = False
+        # Leading-edge-first walk so a cell moved this pass isn't re-read
+        # later in the same pass -- same trick as advance_sweep.
+        if dy != 0:
+            col = lane
+            for y in range(HEIGHT - 1, -1, -1) if dy > 0 else range(HEIGHT):
+                if cell_state[y][col] != LIT:
+                    continue
+                moved_any = True
+                color = cell_color[y][col]
+                set_pixel(col, y, 0x000000)
+                cell_state[y][col] = OFF
+                ny = y + dy
+                if 0 <= ny < HEIGHT:
+                    set_pixel(col, ny, color)
+                    cell_color[ny][col] = color
+                    cell_state[ny][col] = LIT
+        else:
+            row = lane
+            for x in range(WIDTH - 1, -1, -1) if dx > 0 else range(WIDTH):
+                if cell_state[row][x] != LIT:
+                    continue
+                moved_any = True
+                color = cell_color[row][x]
+                set_pixel(x, row, 0x000000)
+                cell_state[row][x] = OFF
+                nx = x + dx
+                if 0 <= nx < WIDTH:
+                    set_pixel(nx, row, color)
+                    cell_color[row][nx] = color
+                    cell_state[row][nx] = LIT
+        if not moved_any:
+            hue_clearing[lane] = False
+            hue_dropping[lane] = False
+
+
+def on_tick_hue():
+    global hue_index
+    dx, dy = hue_dx, hue_dy
+    nlanes = WIDTH if dy != 0 else HEIGHT
+    lane = rng.below(nlanes)
+    if dy != 0:
+        spawn_x, spawn_y = lane, (0 if dy > 0 else HEIGHT - 1)
+    else:
+        spawn_x, spawn_y = (0 if dx > 0 else WIDTH - 1), lane
+    if hue_dropping[lane] or hue_clearing[lane]:
+        return  # that lane's busy; a later tick will pick another
+    if cell_state[spawn_y][spawn_x] != OFF:
+        start_hue_clear(lane)  # stacked all the way to the spawn edge: full
+        return
+    color = HUE_COLORS[hue_index]
+    hue_index = (hue_index + 1) % len(HUE_COLORS)
+    hue_dropping[lane] = True
+    set_pixel(spawn_x, spawn_y, color)
+    cell_state[spawn_y][spawn_x] = ANIM
+    cell_color[spawn_y][spawn_x] = color
+    hue_falling.append([spawn_x, spawn_y, color, time.monotonic() + FALL_STEP_PERIOD])
+    if VERBOSE:
+        print("hue: drop lane=%d (%d,%d) #%06x" % (lane, spawn_x, spawn_y, color))
+
+
 print("Trust M matrix: chip session open, starting.")
 next_tick = time.monotonic()
 next_status = time.monotonic()
 while True:
     now = time.monotonic()
     poll_buttons()
-    advance_blinks(now)
-    advance_falling(now)
-    advance_sweep(now)
-    if not sweep_active and now >= next_tick:
-        on_tick()
-        next_tick = now + DELAYS[delay_index]
+    if mode_index == MODE_RANDOM_COLOR:
+        advance_blinks(now)
+        advance_falling(now)
+        advance_sweep(now)
+        if not sweep_active and now >= next_tick:
+            on_tick()
+            next_tick = now + DELAYS[delay_index]
+    else:
+        advance_hue_falling(now)
+        advance_hue_clearing(now)
+        if now >= next_tick:
+            on_tick_hue()
+            next_tick = now + DELAYS[delay_index]
     if now >= next_status:
-        print(
-            "status: %d/%d lit (%.0f%%), free mem %d bytes"
-            % (lit_count, WIDTH * HEIGHT, 100 * lit_count / (WIDTH * HEIGHT), gc.mem_free())
-        )
+        if mode_index == MODE_RANDOM_COLOR:
+            print(
+                "status: %d/%d lit (%.0f%%), free mem %d bytes"
+                % (lit_count, WIDTH * HEIGHT, 100 * lit_count / (WIDTH * HEIGHT), gc.mem_free())
+            )
+        else:
+            print("status: hue-frequency mode, free mem %d bytes" % gc.mem_free())
         next_status = now + STATUS_PERIOD
     display.refresh()
     time.sleep(0.01)
