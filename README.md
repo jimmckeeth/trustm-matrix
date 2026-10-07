@@ -1,4 +1,4 @@
-# Trust M Matrix
+# Random Trust-M Matrix
 
 *What does real randomness look like?*
 
@@ -9,7 +9,7 @@ not a software pseudo-random generator. Real random in real time.
 
 ## Display Variations
 
-The board can show two different visualizations of the same underlying
+The board can show five different visualizations of the same underlying
 randomness. Hold **UP** or **DOWN** for one second to rotate between them
 (a quick tap instead changes the tick speed — see [Usage](#usage)).
 
@@ -37,6 +37,28 @@ Tailwind CSS "600" shade from red to rose. When a lane fills up
 completely, the whole lane falls off the far edge — pixels keeping their
 original colors as they fall — while new pixels keep dropping into other
 lanes without missing a beat.
+
+### brownian
+
+Ten random walkers, each taking one truly-random step per tick (the tick
+speed is the swarm speed) and wrapping around the panel edges. Each leaves a
+36-step trail that fades from the walker's full-brightness random color down
+to black.
+
+### lava
+
+A continuously evolving 3-D Perlin-noise field (two octaves, sampled coarsely
+and interpolated up to the full panel) mapped through a palette whose hue
+slowly rotates, so the lava drifts from red/orange through green and blue and
+back. The noise's permutation table is shuffled with Trust M random bytes, so
+every boot gets a different field.
+
+### voronoi
+
+Eight cells drift around the panel, bouncing off the edges, their velocities
+nudged by tiny random kicks. Every pixel takes the color of its nearest cell
+center, shaded darker toward the cell borders, and each cell's hue slowly
+drifts at its own random rate and direction.
 
 ## Hardware / Bill of Materials
 
@@ -68,8 +90,11 @@ Written for CircuitPython 10.x, but later versions may also work.
 
 1. Download [CircuitPython for the Matrix Portal M4](https://circuitpython.org/board/matrixportal_m4/). 
 2. Install on the [CircuitPython on the Matrix Portal M4](https://learn.adafruit.com/adafruit-matrixportal-m4/install-circuitpython).
-3. Copy `code.py` and `trustm.py` from this repo to the root of the
-   `CIRCUITPY` drive that appears when the board is plugged in.
+3. Copy `code.py`, `vizcore.py`, `trustm.py` and every `viz_*.py` file from
+   this repo to the root of the `CIRCUITPY` drive that appears when the
+   board is plugged in. (`code.py` is only the orchestrator; each display
+   variation lives in its own `viz_*.py`. They are imported one at a time as
+   you switch modes, so RAM only ever holds one.)
 4. Download the
    bundle matching your CircuitPython version from
    [circuitpython.org/libraries](https://circuitpython.org/libraries).
@@ -89,8 +114,8 @@ Written for CircuitPython 10.x, but later versions may also work.
 - Tapping the **UP** and **DOWN** buttons steps through a list of tick
   speeds (`DELAYS` in `code.py`), from very fast (a few milliseconds) to
   slow (several seconds).
-- Holding **UP** or **DOWN** for one second rotates to the next display
-  variation (see [Display Variations](#display-variations)) instead of
+- Holding **UP** (next) or **DOWN** (previous) for one second rotates to
+  another display variation (see [Display Variations](#display-variations)) instead of
   changing speed.
 - In `random-color` mode, once enough of the board is lit
   (`FULL_THRESHOLD` in `code.py`, a fraction of the total pixel count),

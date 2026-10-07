@@ -199,3 +199,33 @@ Also discovered along the way: `chip_uid()` is confirmed 27 bytes (not
 factory-provisioned identity (locked P-256 key, populated certificate)
 via metadata inspection *before* any write was attempted against it —
 worth doing that check again before writing to any new OID on this chip.
+
+## Visualization refactor: one module per mode
+
+`code.py` is now orchestration only (hardware setup, buttons, delay, main
+loop). Shared plumbing is in `vizcore.py` (`Canvas`, `TrueRandom`, `Gravity`,
+`Env`, `hsv`/`scale_color` helpers, `ACCEL_INVERT_*`). Each mode is a
+`viz_*.py` module with one class: `__init__(env)`, `update(now, delay)`,
+`status()`, `NAME` (contract documented at the top of `vizcore.py`). Modes
+are listed in `MODES` in `code.py`; add a new one by adding a module and a
+tuple there. `load_mode()` imports a mode on entry and pops it from
+`sys.modules` on exit so only one is resident (M4 has 192KB RAM), and builds
+a fresh instance each time, so no mode needs a reset method (this is also
+why hue-frequency's gravity "freeze on entry" now falls out of `__init__`).
+The per-mode constants (`ENABLE_FALLING`, `FULL_THRESHOLD`, `HUE_COLORS`...)
+moved into their module. Button mapping: UP long-press = next mode, DOWN
+long-press = previous.
+
+New modes: `brownian` (10 TRNG random walkers with ring-buffer fading
+trails), `lava` (3-D Perlin on a 4px coarse grid, 2 octaves, bilinear
+upsample, 64-entry LUT with drifting hue rebuilt per frame), `voronoi`
+(8 bouncing seeds with TRNG velocity kicks, nearest-seed search on 2x2
+blocks, per-seed hue drift and 8-step distance shading).
+
+**Verification status: desktop only.** The refactor and new modes were run
+against stubbed `displayio`/`Matrix`/chip on CPython (no exceptions, frames
+rendered and eyeballed), but NOT yet on the board. Unverified on hardware:
+frame rate of lava/voronoi on the M4 (CPython timings suggest roughly
+50-100ms/frame; if too slow, raise `SAMPLE` in `viz_lava.py` or `SCALE` in
+`viz_voronoi.py` -- lava's inner loop hardcodes SAMPLE=4 pixel writes, so
+change that loop too), RAM headroom, and the `sys.modules` unload trick.
