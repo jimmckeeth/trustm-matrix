@@ -11,6 +11,7 @@ lives in its own module (see MODES) and is documented there:
   brownian       viz_brownian.py        random walkers with fading trails
   lava           viz_lava.py            evolving Perlin noise, drifting palette
   voronoi        viz_voronoi.py         drifting Voronoi cells
+  beacons        viz_beacons.py         five public randomness beacons (needs WiFi)
 
 Buttons: tapping UP/DOWN steps the shared tick `delay` through DELAYS
 (UP = slower, DOWN = faster; applies to every visualization); holding either
@@ -45,6 +46,7 @@ MODES = (
     ("viz_brownian", "Brownian"),
     ("viz_lava", "Lava"),
     ("viz_voronoi", "Voronoi"),
+    ("viz_beacons", "Beacons"),
 )
 
 # --- hardware: shared STEMMA I2C bus (Trust M TRNG + onboard LIS3DH) -------
@@ -78,6 +80,9 @@ def load_mode(index):
     blank the panel, then import and construct the one at MODES[index]."""
     global viz, mode_index
     if viz is not None:
+        close = getattr(viz, "close", None)
+        if close:
+            close()  # optional: release pins etc. so the mode can be re-entered
         viz = None
         sys.modules.pop(MODES[mode_index][0], None)
     mode_index = index

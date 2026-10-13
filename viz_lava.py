@@ -17,12 +17,14 @@ import time
 
 from vizcore import HEIGHT, WIDTH, floor, hsv
 
-SAMPLE = 4  # pixels between coarse noise samples (must divide WIDTH and HEIGHT)
-OCTAVE1 = 1 / 16  # lattice units per pixel: broad blobs
-OCTAVE2 = 1 / 8  # finer detail, half the weight
-TIME_STEP = 0.03  # noise-time advanced per frame
+SAMPLE = 8  # pixels between coarse noise samples (must divide WIDTH and HEIGHT)
+OCTAVE1 = 1 / 32  # lattice units per pixel: broad blobs
+OCTAVE2 = 1 / 16  # finer detail, half the weight. Keep OCTAVE * SAMPLE <= 0.5
+# (lattice units per coarse sample) or the coarse grid undersamples the noise.
+TIME_STEP = 0.015  # noise-time advanced per frame
 HUE_DRIFT = 0.002  # palette hue rotation per frame (1.0 == full wheel)
 LUT_SIZE = 64
+LUT_EVERY = 3  # rebuild the color table every Nth frame (hue drifts too slowly to notice)
 
 GW = WIDTH // SAMPLE + 1  # coarse grid points across
 GH = HEIGHT // SAMPLE + 1
@@ -91,6 +93,7 @@ class Lava:
         self.hue = rng.unit()
         self.t = rng.unit() * 100  # start somewhere arbitrary in noise-time
         self.lut = [0] * LUT_SIZE
+        self.frames = 0
         # Coarse sample grid, reused every frame (rows of GW values).
         self.grid = [[0.0] * GW for _ in range(GH)]
         self.next_tick = time.monotonic()
@@ -132,7 +135,9 @@ class Lava:
     def frame(self):
         self.t += TIME_STEP
         self.hue += HUE_DRIFT
-        self.build_lut()
+        if self.frames % LUT_EVERY == 0:
+            self.build_lut()
+        self.frames += 1
         self.sample()
         lut, pal, grid = self.lut, self.pal, self.grid
         inv = 1 / SAMPLE
@@ -152,3 +157,7 @@ class Lava:
                     pal[o + 1] = lut[int(left + step)]
                     pal[o + 2] = lut[int(left + step * 2)]
                     pal[o + 3] = lut[int(left + step * 3)]
+                    pal[o + 4] = lut[int(left + step * 4)]
+                    pal[o + 5] = lut[int(left + step * 5)]
+                    pal[o + 6] = lut[int(left + step * 6)]
+                    pal[o + 7] = lut[int(left + step * 7)]

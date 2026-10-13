@@ -222,10 +222,14 @@ upsample, 64-entry LUT with drifting hue rebuilt per frame), `voronoi`
 (8 bouncing seeds with TRNG velocity kicks, nearest-seed search on 2x2
 blocks, per-seed hue drift and 8-step distance shading).
 
-**Verification status: desktop only.** The refactor and new modes were run
-against stubbed `displayio`/`Matrix`/chip on CPython (no exceptions, frames
-rendered and eyeballed), but NOT yet on the board. Unverified on hardware:
-frame rate of lava/voronoi on the M4 (CPython timings suggest roughly
-50-100ms/frame; if too slow, raise `SAMPLE` in `viz_lava.py` or `SCALE` in
-`viz_voronoi.py` -- lava's inner loop hardcodes SAMPLE=4 pixel writes, so
-change that loop too), RAM headroom, and the `sys.modules` unload trick.
+**Verification status: verified on hardware.** All six modes (the five above
+plus `beacons`) rotate via `switch_mode()` on the real board, with the
+`sys.modules` unload trick working and no exceptions. Measured per-frame cost on
+the M4: brownian ~37ms, voronoi ~180ms, lava ~135ms. Lava was originally ~500ms
+(one `noise3` call is ~1.4ms on the M4, and 306 calls/frame dominated), so it
+now samples on an 8px grid (`SAMPLE=8`, octaves 1/32 and 1/16, color table
+rebuilt every 3rd frame); its inner loop hardcodes 8 pixel writes per cell, so
+change that loop too if `SAMPLE` changes. A mode may define an optional
+`close()`; `load_mode()` calls it on exit (beacons uses it to release the ESP32
+pins and WiFi libraries). The long-press button path itself is still untested
+(rotation was driven from the REPL).

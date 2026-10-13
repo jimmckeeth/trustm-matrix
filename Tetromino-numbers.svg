@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500"
+   height="100"
+   viewBox="0 0 132.29166 26.458333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="Tetromino-numbers.svg"
+   inkscape:export-filename="Tetromino-numbers.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="1.9474046"
+     inkscape:cx="235.18482"
+     inkscape:cy="11.297087"
+     inkscape:window-width="2256"
+     inkscape:window-height="1411"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g118"
+     showguides="true" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-42.015609,-9.2397414)">
+    <g
+       id="g111"
+       inkscape:label="1"
+       transform="translate(10.243535,6.197031)">
+      <g
+         id="g53"
+         transform="matrix(-0.26458333,0,0,-0.26458333,48.616963,28.225259)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect46"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect47"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect48"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect49"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="rect50"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+      <g
+         id="g73"
+         inkscape:label="T"
+         transform="matrix(0.26458333,0,0,-0.26458333,27.569359,32.33953)">
+        <rect
+           style="fill:#ad46ff;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect46-2"
+           width="10"
+           height="10"
+           x="65"
+           y="35" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#rect46-2"
+           id="use67"
+           transform="translate(10)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use67"
+           id="use68"
+           transform="translate(-20)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use68"
+           id="use69"
+           transform="translate(10,10)" />
+        <path
+           id="use70"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="M 55,35 V 45 H 65 V 55 H 75 V 45 H 85 V 35 H 75 65 Z" />
+      </g>
+    </g>
+    <g
+       id="g112"
+       inkscape:label="2"
+       transform="translate(11.262661,6.197031)">
+      <g
+         id="g53-6"
+         transform="matrix(0.26458333,0,0,0.26458333,52.590187,4.60773)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect46-3"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect47-1"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect48-7"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect49-5"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="rect50-9"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+      <g
+         id="g7"
+         transform="matrix(-0.26458333,0,0,-0.26458333,60.289562,28.129188)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect4"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect5"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect6"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect7"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="path7"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+    </g>
+    <g
+       id="g113"
+       inkscape:label="3"
+       transform="translate(14.441438,6.197031)">
+      <g
+         id="g11"
+         transform="matrix(-0.26458333,0,0,0.26458333,68.479595,4.1994292)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect8"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect9"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect10"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect11"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="path11"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+      <g
+         id="g15"
+         transform="matrix(-0.26458333,0,0,-0.26458333,68.479595,27.720887)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect12"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect13"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect14"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect15"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="path15"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+      <rect
+         style="fill:#2b7fff;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+         id="rect44-8"
+         width="10"
+         height="10"
+         x="15.059966"
+         y="-58.988731"
+         transform="matrix(0.26458333,0,0,0.26458333,57.999457,30.244677)"
+         inkscape:label="dot" />
+    </g>
+    <g
+       id="g114"
+       inkscape:label="4"
+       transform="translate(16.57199,6.197031)">
+      <g
+         id="g27"
+         transform="matrix(0,-0.26458333,-0.26458333,0,88.268111,16.240252)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect24"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect25"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect26"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect27"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="path27"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+      <g
+         id="g33"
+         inkscape:label="beam"
+         transform="matrix(0,0.26458333,-0.26458333,0,78.888632,11.067648)">
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect28"
+           width="10"
+           height="10"
+           x="5"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect29"
+           width="10"
+           height="10"
+           x="15"
+           y="4" />
+        <rect
+           style="fill:#fb2c36;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect30"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect31"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect32"
+           width="10"
+           height="10"
+           x="35"
+           y="4" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect33"
+           width="40"
+           height="10"
+           x="5"
+           y="4" />
+      </g>
+      <rect
+         style="fill:#2b7fff;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+         id="rect34"
+         width="10"
+         height="10"
+         x="64.95121"
+         y="-77.48011"
+         transform="matrix(0.26458333,0,0,0.26458333,57.999457,30.244677)"
+         inkscape:label="dot" />
+    </g>
+    <g
+       id="g115"
+       inkscape:label="5"
+       transform="translate(17.65267,6.197031)">
+      <g
+         id="g38"
+         transform="matrix(-0.26458333,0,0,0.26458333,88.00598,4.8096376)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect35"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect36"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect37"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect38"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="path38"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+      <g
+         id="g54"
+         transform="matrix(0.26458333,0,0,-0.26458333,80.306605,28.331096)"
+         inkscape:label="L">
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect39"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="39.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect51"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="49.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect52"
+           width="10"
+           height="10"
+           x="4.5500002"
+           y="59.450001" />
+        <rect
+           style="fill:#ff6900;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect53"
+           width="10"
+           height="10"
+           x="14.55"
+           y="59.450001" />
+        <path
+           id="path53"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="m 4.55,39.45 v 10 10 10 h 10 10 v -10 h -10 v -10 -10 z" />
+      </g>
+    </g>
+    <g
+       id="g116"
+       inkscape:label="6"
+       transform="translate(18.544339,6.197031)">
+      <g
+         id="g45"
+         inkscape:label="beam"
+         transform="matrix(0,0.26458333,-0.26458333,0,94.375462,8.5270333)">
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect40"
+           width="10"
+           height="10"
+           x="5"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect41"
+           width="10"
+           height="10"
+           x="15"
+           y="4" />
+        <rect
+           style="fill:#fb2c36;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect42"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect43"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect44"
+           width="10"
+           height="10"
+           x="35"
+           y="4" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect45"
+           width="40"
+           height="10"
+           x="5"
+           y="4" />
+      </g>
+      <g
+         id="g65"
+         transform="matrix(0.26458333,0,0,0.26458333,76.119215,16.729117)"
+         inkscape:label="square">
+        <rect
+           style="fill:#ffdf20;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect46-9"
+           width="10"
+           height="10"
+           x="65"
+           y="4" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#rect46-9"
+           id="use73"
+           transform="translate(9.9)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use74"
+           transform="translate(-10,10)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use75"
+           transform="translate(0,10)" />
+        <path
+           id="rect62"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="M 65,4 V 14 24 H 75 85 V 14 4 H 75 Z" />
+      </g>
+      <rect
+         style="fill:#2b7fff;stroke:#000000;stroke-width:0.211667;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+         id="rect54"
+         width="2.6458333"
+         height="2.6458333"
+         x="90.671295"
+         y="20.433283"
+         inkscape:label="dot" />
+    </g>
+    <g
+       id="g117"
+       inkscape:label="7"
+       transform="translate(15.841023,6.197031)">
+      <g
+         id="g60"
+         inkscape:label="beam"
+         transform="matrix(-0.26458333,0,0,-0.26458333,115.32014,13.554117)">
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect55"
+           width="10"
+           height="10"
+           x="5"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect56"
+           width="10"
+           height="10"
+           x="15"
+           y="4" />
+        <rect
+           style="fill:#fb2c36;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect57"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect58"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect59"
+           width="10"
+           height="10"
+           x="35"
+           y="4" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect60"
+           width="40"
+           height="10"
+           x="5"
+           y="4" />
+      </g>
+      <g
+         id="g66"
+         inkscape:label="S"
+         transform="matrix(-0.26458333,0,0,0.26458333,121.93472,5.8812004)">
+        <rect
+           style="fill:#00a63e;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect61"
+           width="10"
+           height="10"
+           x="30"
+           y="25.000002" />
+        <rect
+           style="fill:#00a63e;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect63"
+           width="10"
+           height="10"
+           x="30"
+           y="35" />
+        <rect
+           style="fill:#00a63e;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect64"
+           width="10"
+           height="10"
+           x="40"
+           y="35" />
+        <rect
+           style="fill:#00a63e;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect65"
+           width="10"
+           height="10"
+           x="40"
+           y="45" />
+        <path
+           id="path65"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="M 30,25 V 35 45 H 40 V 55 H 50 V 45 35 H 40 V 25 Z" />
+      </g>
+      <rect
+         style="fill:#2b7fff;stroke:#000000;stroke-width:0.211667;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+         id="rect69"
+         width="2.6458333"
+         height="2.6458333"
+         x="108.70555"
+         y="20.433283"
+         inkscape:label="dot" />
+    </g>
+    <g
+       id="g118"
+       inkscape:label="8"
+       transform="translate(13.965644,6.197031)">
+      <g
+         id="g76"
+         transform="matrix(0.26458333,0,0,0.26458333,102.07292,16.7688)"
+         inkscape:label="square">
+        <rect
+           style="fill:#ffdf20;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect70"
+           width="10"
+           height="10"
+           x="65"
+           y="4" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#rect46-9"
+           id="use71"
+           transform="translate(9.9)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use72"
+           transform="translate(-10,10)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use76"
+           transform="translate(0,10)" />
+        <path
+           id="path76"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="M 65,4 V 14 24 H 75 85 V 14 4 H 75 Z" />
+      </g>
+      <g
+         id="g79"
+         transform="matrix(0.26458333,0,0,0.26458333,102.07292,8.7916167)"
+         inkscape:label="square">
+        <rect
+           style="fill:#ffdf20;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect76"
+           width="10"
+           height="10"
+           x="65"
+           y="4" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#rect46-9"
+           id="use77"
+           transform="translate(9.9)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use78"
+           transform="translate(-10,10)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use79"
+           transform="translate(0,10)" />
+        <path
+           id="path79"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="M 65,4 V 14 24 H 75 85 V 14 4 H 75 Z" />
+      </g>
+    </g>
+    <g
+       id="g119"
+       inkscape:label="9"
+       transform="translate(13.663006,6.197031)">
+      <g
+         id="g85"
+         inkscape:label="beam"
+         transform="matrix(0,-0.26458333,0.26458333,0,133.87916,24.507866)">
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect80"
+           width="10"
+           height="10"
+           x="5"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect81"
+           width="10"
+           height="10"
+           x="15"
+           y="4" />
+        <rect
+           style="fill:#fb2c36;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect82"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect83"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect84"
+           width="10"
+           height="10"
+           x="35"
+           y="4" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect85"
+           width="40"
+           height="10"
+           x="5"
+           y="4" />
+      </g>
+      <g
+         id="g88"
+         transform="matrix(-0.26458333,0,0,-0.26458333,152.13541,16.305783)"
+         inkscape:label="square">
+        <rect
+           style="fill:#ffdf20;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect86"
+           width="10"
+           height="10"
+           x="65"
+           y="4" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#rect46-9"
+           id="use86"
+           transform="translate(9.9)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use87"
+           transform="translate(-10,10)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use88"
+           transform="translate(0,10)" />
+        <path
+           id="path88"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="M 65,4 V 14 24 H 75 85 V 14 4 H 75 Z" />
+      </g>
+      <rect
+         style="fill:#2b7fff;stroke:#000000;stroke-width:0.211667;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+         id="rect88"
+         width="2.6458333"
+         height="2.6458333"
+         x="-137.58333"
+         y="-12.601617"
+         inkscape:label="dot"
+         transform="scale(-1)" />
+    </g>
+    <g
+       id="g120"
+       inkscape:label="0"
+       transform="translate(10.243535,6.197031)">
+      <g
+         id="g94"
+         inkscape:label="beam"
+         transform="matrix(0,-0.26458333,0.26458333,0,142.05947,24.441717)">
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect89"
+           width="10"
+           height="10"
+           x="5"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect90"
+           width="10"
+           height="10"
+           x="15"
+           y="4" />
+        <rect
+           style="fill:#fb2c36;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect91"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect92"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect93"
+           width="10"
+           height="10"
+           x="35"
+           y="4" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect94"
+           width="40"
+           height="10"
+           x="5"
+           y="4" />
+      </g>
+      <g
+         id="g100"
+         inkscape:label="beam"
+         transform="matrix(0,-0.26458333,0.26458333,0,149.99697,24.441717)">
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect95"
+           width="10"
+           height="10"
+           x="5"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect96"
+           width="10"
+           height="10"
+           x="15"
+           y="4" />
+        <rect
+           style="fill:#fb2c36;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect97"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect98"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect99"
+           width="10"
+           height="10"
+           x="35"
+           y="4" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect100"
+           width="40"
+           height="10"
+           x="5"
+           y="4" />
+      </g>
+      <g
+         id="g106"
+         inkscape:label="beam"
+         transform="matrix(0.26458333,0,0,0.26458333,141.79489,8.8313005)">
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect101"
+           width="10"
+           height="10"
+           x="5"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect102"
+           width="10"
+           height="10"
+           x="15"
+           y="4" />
+        <rect
+           style="fill:#fb2c36;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect103"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect104"
+           width="10"
+           height="10"
+           x="25"
+           y="4" />
+        <rect
+           style="fill:#e7000b;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect105"
+           width="10"
+           height="10"
+           x="35"
+           y="4" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect106"
+           width="40"
+           height="10"
+           x="5"
+           y="4" />
+      </g>
+      <g
+         id="g109"
+         transform="matrix(0.26458333,0,0,0.26458333,128.59218,16.7688)"
+         inkscape:label="square">
+        <rect
+           style="fill:#ffdf20;stroke:#000000;stroke-width:0.3;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           id="rect107"
+           width="10"
+           height="10"
+           x="65"
+           y="4" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#rect46-9"
+           id="use107"
+           transform="translate(9.9)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use108"
+           transform="translate(-10,10)" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#use73"
+           id="use109"
+           transform="translate(0,10)" />
+        <path
+           id="path109"
+           style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:10.6667;paint-order:fill markers stroke"
+           d="M 65,4 V 14 24 H 75 85 V 14 4 H 75 Z" />
+      </g>
+    </g>
+  </g>
+</svg>
